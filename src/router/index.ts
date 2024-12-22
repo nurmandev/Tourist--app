@@ -1,8 +1,8 @@
 
-import Discover from "@/views/discover.vue";
+import Discover from "@/views/Discover.vue";
 import ExploreAround from "@/views/explore-around.vue";
 import ExploreLisbon from "@/views/explore-lisbon.vue";
-import Home from "@/views/home.vue";
+import Home from "@/views/Home.vue";
 import { createWebHistory, createRouter } from "vue-router";
 
 
