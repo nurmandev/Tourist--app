@@ -62,7 +62,7 @@ export const filters = [
       id: 1,
       title: "Seven ways to eat codfish",
       image: "/images/home1.png",
-      categories: ["FOR YOU"],
+      categories: ["FOR YOU", "TOBY'S CHOICE"],
       price: "€€",
       label: "original",
       icons:[ "/images/icons/music.svg"]
@@ -113,3 +113,28 @@ export const filters = [
       icons:[ "/images/icons/music.svg", "/images/icons/theater.svg"]
     },
   ];
+
+  export const discoverSlides = [
+    {
+      title: 'The 7 freakin\' hills',
+      image: '/images/Mask-group.png',
+      description: 'These hills were São Roque, São Jorge, São Vicente, Santo André, Santa Catarina, Chagas and Sant\'Ana.',
+     
+    },
+    {
+      title: 'Historic Trams',
+      image: '/images/Mask-group.png',
+      description: 'The iconic yellow trams have been climbing Lisbon\'s hills since 1901, with Tram 28 being the most famous route.'
+    },
+    {
+      title: 'Rich History',
+      image: '/images/Mask-group.png',
+      description: 'Lisbon is one of the oldest cities in Western Europe, with a history spanning over 3,000 years.'
+    }
+  ]
+  
+  export const exploreLocations = [
+    { name: "Lisbon", image: "/images/lisbon.png" },
+    { name: "Sintra", image: "/images/sintra.png" },
+    { name: "Belem", image: "/images/belem.png" },
+  ]

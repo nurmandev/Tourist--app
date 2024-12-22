@@ -1,6 +1,8 @@
-import Discover from "@/views/Discover.vue";
-import GetToKnowLisbon from "@/views/Get-to-know-Lisbon.vue";
-import Home from "@/views/Home.vue";
+import Discover from "@/views/discover.vue";
+import ExploreAround from "@/views/explore-around.vue";
+import ExploreLisbon from "@/views/explore-lisbon.vue";
+//import {ExploreLisbon} from "@/views/explore-lisbon.vue";
+import Home from "@/views/home.vue";
 import { createWebHistory, createRouter } from "vue-router";
 
 
@@ -12,14 +14,19 @@ const routes = [
     component: Home,
   },
   {
-    path: "/Get-to-know-Lisbone",
-    name: "GetToKnowLisbon",
-    component: GetToKnowLisbon,
+    path: "/explore-lisbon",
+    name: "ExploreLisbon",
+    component: ExploreLisbon,
   },
   {
-    path: "/Discover",
+    path: "/discover",
     name: "Discover",
     component: Discover,
+  },
+  {
+    path: "/explore-around",
+    name: "ExploreAround",
+    component: ExploreAround,
   },
  
 ];
