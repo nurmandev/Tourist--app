@@ -2,7 +2,6 @@
   <div
    class="p-2 py-4 mb-20 text-black relative z-10 max-w-sm mx-auto">
     <!-- Header -->
-
     <header class="mb-4">
       <a href="/?filter=Getting+to+know+Lisbon" class="flex cursor-pointer justify-center w-[50px] bg-white p-2 rounded-lg ">
         <ArrowLeft />
