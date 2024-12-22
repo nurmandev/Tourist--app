@@ -1,4 +1,4 @@
-import Discover from "@/views/discover.vue";
+import Discover from "@/views/Discover.vue";
 import GetToKnowLisbon from "@/views/Get-to-know-Lisbon.vue";
 import Home from "@/views/Home.vue";
 import { createWebHistory, createRouter } from "vue-router";
