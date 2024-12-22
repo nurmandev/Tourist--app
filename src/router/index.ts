@@ -1,5 +1,4 @@
 
-
 import Discover from "@/views/discover.vue";
 import ExploreAround from "@/views/explore-around.vue";
 import ExploreLisbon from "@/views/explore-lisbon.vue";
