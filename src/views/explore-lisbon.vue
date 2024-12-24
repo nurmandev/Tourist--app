@@ -4,9 +4,23 @@ import { ArrowLeft } from 'lucide-vue-next';
   </script>
   
 <template>
-    <div class="w-full text-gray-900 pb-24">
+    <div 
+    v-motion
+    :initial="{
+      opacity: 0,
+      y: 100,
+    }"
+    :enter="{
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 100,
+        duration: 800,
+      },
+    }"
+    class="w-full text-gray-900 ">
          <!-- Header Section -->
-      <header class="px-5 py-2 bg-no-repeat bg-center bg-cover w-full h-[55vh] bg-[url('/images/explore-lisbon.png')] rounded-2xl  mt-6 mx-4">
+      <header class="px-5 py-2 bg-no-repeat bg-center bg-cover w-full h-[55vh] bg-[url('/images/explore-lisbon.png')] rounded-2xl">
         <a href="/?filter=Getting+to+know+Lisbon" class=" w-[40px] h-10 flex items-center justify-center bg-white  rounded-lg "><ArrowLeft /> </a>
         <p class="mt-5 text-white">
             This is Lisbon at it’s best, <br> let’s explore!
@@ -14,7 +28,7 @@ import { ArrowLeft } from 'lucide-vue-next';
       
       </header>
       <!-- About Section -->
-      <section class="p-6 w-full bg-white rounded-lg shadow mt-6 mx-4">
+      <section class="p-6 w-full bg-white rounded-lg shadow mt-6">
         <h1 class="text-2xl font-medium">About</h1>
         <p class="mt-2 text-gray-700">
           Lisbon is one of the oldest cities in the world and the second-oldest European capital city (after Athens), predating other...
@@ -23,7 +37,7 @@ import { ArrowLeft } from 'lucide-vue-next';
       </section>
   
       <!-- Trendy Neighborhoods -->
-      <section class="mt-5 w-full mx-4">
+      <section class="mt-5 w-full">
         <h2 class="text-2xl font-medium mb-4">Trendy neighborhoods</h2>
         <div class="relative bg-gray-100 rounded-lg shadow">
           <img src="/images/Map.png" alt="Map" class="w-full rounded-t-lg">
@@ -82,7 +96,7 @@ import { ArrowLeft } from 'lucide-vue-next';
       </section>
   
       <!-- Did You Know -->
-      <section class="mt-5 w-full mx-4 ">
+      <section class="mt-5 w-full ">
         <h2 class="text-2xl font-medium mb-4">Did you know?</h2>
         <div class="bg-secondary flex items-center justify-between p-6 rounded-lg">
         <p class="text-gray-700 ">
@@ -94,7 +108,7 @@ import { ArrowLeft } from 'lucide-vue-next';
       </section>
   
       <!-- Useful Portuguese Phrases -->
-      <section class="mt-5 flex justify-between w-full bg-secondary  p-6 rounded-lg mx-4">
+      <section class="mt-5 flex justify-between w-full bg-secondary  p-6 rounded-lg">
        <div>
         <h2 class="text-lg font-medium mb-4 text-[#1D0387]">Useful Portuguese Phrases</h2>
         <ul class="space-y-4">
@@ -122,7 +136,7 @@ import { ArrowLeft } from 'lucide-vue-next';
       </section>
   
       <!-- Statistics -->
-      <section class="mt-5 grid grid-cols-2 gap-3 ml-5 w-full mx-auto ">
+      <section class="mt-5 grid grid-cols-2 gap-3 w-full mx-auto ">
   <div class="bg-white p-4 rounded-lg shadow">
     <p class="text-md font-medium">Population</p>
     <p class="text-2xl font-bold">~3M</p>
@@ -143,7 +157,7 @@ import { ArrowLeft } from 'lucide-vue-next';
 </section>
   
       <!-- Iconic Spots -->
-      <section class="mt-5 mx-4 w-full">
+      <section class="mt-5 w-full">
         <h2 class="text-2xl font-semibold mb-4">Iconic spots</h2>
         <div class="flex space-x-2 overflow-x-auto no-scrollbar">
           <img src="/images/iconic-spot1.png" alt="Spot 1" class="w-48 object-cover h-32 rounded-lg ">
@@ -153,7 +167,7 @@ import { ArrowLeft } from 'lucide-vue-next';
       </section>
   
       <!-- How to Move Around -->
-      <section class="mt-5 mx-4 w-full">
+      <section class="mt-5 w-full">
       <h2 class="text-2xl font-semibold mb-2">How to move around</h2>
       <div class="flex space-x-4 overflow-x-auto">
         <div
@@ -170,14 +184,13 @@ import { ArrowLeft } from 'lucide-vue-next';
               :alt="location.name"
               class="w-full object-contain h-36 rounded-lg"
             />
-            <p class="mt-2 text-sm font-semibold">{{ location.name }}</p>
           </router-link>
         </div>
       </div>
     </section>
 
       <!-- Events This Month -->
-      <section class="mt-5 mx-4">
+      <section class="mt-5">
         <h2 class="text-2xl font-bold mb-4">What's going on this month</h2>
         <div class="flex space-x-2 overflow-x-auto">
             <img src="/images/month1.png" alt="Spot 2" class="w-full cursor-pointer h-36 object-cover rounded-lg ">

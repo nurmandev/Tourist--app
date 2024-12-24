@@ -33,28 +33,18 @@
           v-for="(_, index) in slides"
           :key="index"
           @click="goToSlide(index)"
-          class="h-2 w-5 rounded-full transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-primary"
+          class="h-2 w-5 rounded-full transition-all duration-300 focus:outline-none focus:ring-0 focus:bg-primary"
           :class="currentSlide === index ? 'bg-primary' : 'bg-gray-300'"
           :aria-label="`Go to slide ${index + 1}`"
         />
       </div>
-  
-      <!-- Navigation buttons 
-      <button
-        @click="previousSlide"
-        class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md focus:outline-none focus:ring-2 focus:ring-primary"
-        aria-label="Previous slide"
-      >
-        <ChevronLeft class="h-6 w-6 text-gray-600" />
-      </button>
-      <button
-        @click="nextSlide"
-        class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md focus:outline-none focus:ring-2 focus:ring-primary"
-        aria-label="Next slide"
-      >
-        <ChevronRight class="h-6 w-6 text-gray-600" />
-      </button> -->
     </div>
+    <button
+            @click="nextSlide"
+            class="w-[90%] flex justify-center mx-auto bg-primary text-white py-3 rounded-lg mt-2  transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
+          >
+          Wow, nice! Next 
+          </button>
   </template>
   
   <script setup lang="ts">
@@ -99,4 +89,18 @@
   </script>
   
   
-  
+   <!-- Navigation buttons 
+      <button
+        @click="previousSlide"
+        class="absolute top-1/2 left-2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md focus:outline-none focus:ring-2 focus:ring-primary"
+        aria-label="Previous slide"
+      >
+        <ChevronLeft class="h-6 w-6 text-gray-600" />
+      </button>
+      <button
+        @click="nextSlide"
+        class="absolute top-1/2 right-2 transform -translate-y-1/2 bg-white rounded-full p-2 shadow-md focus:outline-none focus:ring-2 focus:ring-primary"
+        aria-label="Next slide"
+      >
+        <ChevronRight class="h-6 w-6 text-gray-600" />
+      </button> -->

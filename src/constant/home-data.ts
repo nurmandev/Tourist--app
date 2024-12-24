@@ -68,7 +68,7 @@ export const filters = [
       icons:[ "/images/icons/music.svg"]
     },
     {
-      id: 2,
+      id: 3,
       title: "Lisbon Small-Group Food Tour",
       image: "/images/home2.png",
       categories: ["FOR YOU", "TOBY'S CHOICE"],
@@ -77,7 +77,7 @@ export const filters = [
       icons:[ "/images/icons/music.svg", "/images/icons/theater.svg"]
     },
     {
-      id: 3,
+      id: 2,
       title: "The wine alchemists",
       image: "/images/home3.png",
       categories: ["TOBY'S CHOICE"],
@@ -105,12 +105,48 @@ export const filters = [
     },
     {
       id: 6,
-      title: "The spirit of Lisbon: Stories, Sights, and Fun facts",
+      title: "Fado inside the box at iconic Adega Machado",
       image: "/images/home6.png",
+      categories: ["TIP-BASED"],
+      price: "€€",
+      label: "",
+      icons:[ "/images/icons/music.svg", "/images/icons/theater.svg"]
+    },
+    {
+      id: 7,
+      title: "Pensão Amor, a unique bar to enjoy great drinks",
+      image: "/images/home7.png",
+      categories: ["TIP-BASED"],
+      price: "€€",
+      label: "",
+      icons:[ "/images/icons/restaurant.svg"]
+    },
+    {
+      id: 8,
+      title: "The spirit of Lisbon: Stories, Sights and Fun facts",
+      image: "/images/home8.png",
       categories: ["TIP-BASED"],
       price: "tip-based",
       label: "",
-      icons:[ "/images/icons/music.svg", "/images/icons/theater.svg"]
+      icons:[ "/images/icons/theater.svg"]
+    },
+    {
+      id: 9,
+      title: "Experience the emotion of Fado in the heart of Bairro Alto District",
+      image: "/images/home9.png",
+      categories: ["TIP-BASED"],
+      price: "€€",
+      label: "",
+      icons:[ "/images/icons/theater.svg", "/images/icons/music.svg"]
+    },
+    {
+      id: 10,
+      title: "Miradouro da Graça, the best in town",
+      image: "/images/home10.png",
+      categories: ["TIP-BASED"],
+      price: "free",
+      label: "",
+      icons:[ "/images/icons/theater.svg"]
     },
   ];
 

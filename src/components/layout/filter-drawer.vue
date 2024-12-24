@@ -6,9 +6,6 @@
           <span class="bg-white rounded-lg p-2 cursor-pointer">
             <SlidersHorizontal :size="16" />
           </span>
-          <span class="bg-white rounded-lg p-2 cursor-pointer">
-            <ArrowDownUp :size="16" />
-          </span>
         </SheetTrigger>
   
         <SheetContent side="right" class="w-full font-medium sm:max-w-md overflow-y-auto bg-white px-4">
@@ -196,7 +193,7 @@
   </template>
   
   <script setup lang="ts">
-  import { SlidersHorizontal, ArrowDownUp } from 'lucide-vue-next'
+  import {SlidersHorizontal} from 'lucide-vue-next'
 import {
   Sheet,
   SheetContent,
