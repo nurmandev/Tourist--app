@@ -1,120 +1,228 @@
-type Location = {
-    address?: string;
-    city?: string;
-    postalCode?: string;
-    country?: string;
-    coordinates?: {
-      lat: number;
-      lng: number;
-    };
-  };
-  
-  type TimeInfo = {
+type TimeInfo = {
     opens?: string;
     closes?: string;
     daysOfOperation?: string[];
   };
   
-  type Duration = {
-    preparation?: string;
-    cooking?: string;
-    total?: string;
+  type Distance = {
+    time?: string;
+    location?: string;
+    locationFull?: string;
+    availability?: string;
+    nearestStation?: string;
+  };
+  type AdditionalInfoItem = {
+    title?: string;
+    items?: string[];
   };
   
-  type SubwayInfo = {
-    nearestStation?: string;
-    lines?: string[];
-    walkingDistance?: string;
-  };
   
   type Item = {
     // Required fields
     id: number;
     title: string;
-  
+    image: string;
     // Optional fields
     about?: string;
     location?: Location;
-    image?: string;
+    shares?: number | string;
     categories?: string[];
     tags?: string[];
     time?: TimeInfo;
-    duration?: Duration;
+    distance?: Distance;
     texts?: string[];
-    subway?: SubwayInfo;
-    price?: string;
+    price?: number | string;
     label?: string;
+    mapImage?:string;
     icons?: string[];
-    whatsIncluded?: string[];
-    whoThisIsFor?: string[];
-    whatYouShouldKnow?: string[];
+    additionalInfo?: AdditionalInfoItem[];
   };
   
   
-   export const CardFullData: Item = {
+   export const CardFullData: Item[] = [
+    {
     id: 1,
     title: "Seven ways to eat codfish",
-    about: "Experience the authentic taste of Portuguese codfish through seven unique preparations. From traditional Bacalhau à Brás to modern interpretations, discover the versatility of this beloved fish.",
-    location: {
-      address: "Rua da Boavista 134",
-      city: "Lisbon",
-      postalCode: "1200-068",
-      country: "Portugal",
-      coordinates: {
-        lat: 38.7084,
-        lng: -9.1487
-      }
-    },
     image: "/images/home1.png",
+    shares: 61,
     categories: ["FOR YOU", "TOBY'S CHOICE"],
+    price: 60,
+    about:
+      "Dive into Lisbon's love affair with bacalhau on this tantalizing food experience. Explore seven distinct and delicious ways the Portuguese cook codfish.",
+    tags: ["Baixa", "Fish"],
+    time: {
+      opens: "12:00",
+      closes: "23:00",
+      daysOfOperation: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    },
+    distance: {
+      time: "1h30",
+        location: "Rua dos Bacalhoeiros, 16",
+        locationFull: "Rua dos Bacalhoeiros, 16",
+        availability: "Everyday between 15h - 18h",
+        nearestStation:'Terreiro do Paço',
+    },
+    texts: [
+      `Portugal has over 1,000 codfish recipes, earning it the nickname "faithful friend" of Portuguese cuisine.`,
+      "Codfish isn’t native to Portugal—it’s imported, mostly from Norway and Iceland.",
+      "Portuguese explorers introduced dried codfish to the world during their sea voyages in the 15th century."
+    ],
+    mapImage: "/images/tour-map.png",
+    label: "original",
+    icons: ["/images/icons/music.svg"],
+    additionalInfo:[
+      {
+        title: "What's Included",
+        items:[
+          "Tasting of 7 traditional codfish dishes:",
+          "  • Salada de Bacalhau: A refreshing codfish salad with chickpeas, onions, and olive oil",
+          "  • Pastéis de Bacalhau: Golden codfish cake, crispy on the outside and fluffy inside",
+          "  • Patanisca de Bacalhau: A delicious codfish fritter crispy on the outside and fluffy inside",
+          "  • Bacalhau à Brás: A comforting mix of shredded codfish, eggs, onions, and crispy potatoes",
+          "  • Bacalhau à Lagareiro: Oven-baked codfish with olive oil, garlic, and roasted potatoes",
+          "  • Bacalhau à Gomes de Sá: A classic casserole with cod, potatoes, onions, and olives",
+          "  • Bacalhau Assado na Brasa: Grilled codfish with a smoky, charred flavor",
+          "  • A glass of wine or beverage paired with each dish",
+          "Access to web app with historical and cultural insights about codfish in Portuguese cuisine"
+        ],
+      },
+      {
+        title: "Who This Is For",
+        items:  [
+          "◻ Most travelers can participate;",
+          "◻ In case of food allergies or diet restrictions, indicate it at the time of booking.",
+          "◻ This activity is NOT suitable for: Vegan, Vegetarian or if you do not eat fish.",
+          "◻ It Is suitable for the Pescetarian diet (fish, no meat). To be indicated at the time of purchase.",
+        ],
+      },
+      {
+        title: "More You Should Know",
+        items:  [
+          "• This experience requires a minimum number of travelers. If it’s canceled because the minimum isn’t met, you’ll be offered a different date/experience or a full refund.",
+          "• For a full refund, cancel at least 24 hours in advance of the start date of the experience.",
+          
+        ]
+      },
+    ]
+  },
+  {
+    id: 2,
+    title: "The wine alchemists",
+    image: "/images/home2.png",
+    shares: 61,
+   // categories: ["FOR YOU", "TOBY'S CHOICE"],
+    price: 98,
+    about:
+      "Step into the world of Portuguese winemaking, where tradition meets artistry. Unlike anywhere else, Portugal’s winemaker.",
     tags: ["Portuguese cuisine", "Seafood", "Traditional", "Chef's special", "Fish"],
     time: {
       opens: "12:00",
       closes: "23:00",
       daysOfOperation: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
     },
-    duration: {
-      preparation: "45 mins",
-      cooking: "30 mins",
-      total: "75 mins"
+    distance: {
+      time: "2h30",
+        location: "Terraço Editorial",
+        locationFull: "Terraço Editorial, Rua dos Bacalhoeiros, 16",
+        availability: "Everyday between 12h - 24h",
+        nearestStation:'Rossio',
     },
     texts: [
-      "Discover the art of Portuguese codfish",
-      "Fresh ingredients, traditional methods",
-      "Family recipes passed through generations"
+      "Wine was introduced to the inhabitants of Lisbon about 3000 years ago by phoenician merchants.",
+      "The Romans called a local tribe Lusitans. According to legend, the name was inspired by Lusus, the son of the Roman god of wine:  Bacchus.",
+      "Portugal is home to over 250 native grape varieties, many of which aren’t grown anywhere else in the world."
     ],
-    subway: {
-      nearestStation: "Baixa-Chiado",
-      lines: ["Green", "Blue"],
-      walkingDistance: "5 minutes"
-    },
-    price: "€€",
+    mapImage: "/images/tour-map.png",
     label: "original",
     icons: ["/images/icons/music.svg"],
-    whatsIncluded: [
-      "• Tasting of 7 traditional codfish dishes:",
-      "  • Salada de Bacalhau: A refreshing codfish salad with chickpeas, onions, and olive oil",
-      "  • Pastéis de Bacalhau: Golden codfish cake, crispy on the outside and fluffy inside",
-      "  • Patanisca de Bacalhau: A delicious codfish fritter crispy on the outside and fluffy inside",
-      "  • Bacalhau à Brás: A comforting mix of shredded codfish, eggs, onions, and crispy potatoes",
-      "  • Bacalhau à Lagareiro: Oven-baked codfish with olive oil, garlic, and roasted potatoes",
-      "  • Bacalhau à Gomes de Sá: A classic casserole with cod, potatoes, onions, and olives",
-      "  • Bacalhau Assado na Brasa: Grilled codfish with a smoky, charred flavor",
-      "• A glass of wine or beverage paired with each dish",
-      "• Access to web app with historical and cultural insights about codfish in Portuguese cuisine"
-    ],
-    whoThisIsFor: [
-      "◻ Most travelers can participate;",
-      "◻ In case of food allergies or diet restrictions, indicate it at the time of booking.",
-      "◻ This activity is NOT suitable for: Vegan, Vegetarian or if you do not eat fish.",
-      "◻ It Is suitable for the Pescetarian diet (fish, no meat). To be indicated at the time of purchase.",
-    ],
-    whatYouShouldKnow: [
-      "• This experience requires a minimum number of travelers. If it’s canceled because the minimum isn’t met, you’ll be offered a different date/experience or a full refund.",
-      "• For a full refund, cancel at least 24 hours in advance of the start date of the experience.",
-      "• Classes are conducted in English and Portuguese",
-      "• Vegetarian alternatives are not available for this specific class",
-      "• Photos and videos are allowed and encouraged",
-      "• Please inform us of any allergies in advance"
+    additionalInfo:[
+      {
+        title: "What's Included",
+        items:[
+          "Welcome drink by the Terrace;",
+          "  • Tasting of 7 selected wines from different regions in Portugal",
+          "  • Guidance by professional sommelier;",
+          "  • Sample of local cheeses and charcuterie",
+          "  • Not included: gratuities",
+          
+        ],
+      },
+      {
+        title: "Who This Is For",
+        items:  [
+          "◻ Not allowed for people under 18.",
+        ],
+      },
+      {
+        title: "More You Should Know",
+        items:  [
+          "• For a full refund, cancel at least 24 hours in advance of the start date of the experience.",
+          
+        ]
+      },
+
+      
     ]
-  };
+    
+  },
+
+  {
+    id: 6,
+    title: "Fado inside the box at iconic Adega Machado",
+    image: "/images/home6.png",
+    shares: 61,
+   // categories: ["FOR YOU", "TOBY'S CHOICE"],
+    price: 60,
+    about:
+      "Step into an iconic Fado house where the legendary Amália Rodrigues once graced the stage. In this intimate one-hour experience, enjoy a glass of fine Portuguese wine and savor local delicacies as two professional Fado singers take you on a journey through 200 years of Fado’s history. Let the melodies and stories transport you to the heart of Portugal’s soul in a setting steeped in musical heritage. A truly unforgettable afternoon break.",
+    time: {
+      opens: "12:00",
+      closes: "23:00",
+      daysOfOperation: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    },
+    distance: {
+      time: "45min",
+        location: "Adega Machado",
+        locationFull:"R. do Norte 91, 1200-284 Lisboa",
+        availability: "Thu, Fri, Sat at 19h",
+        nearestStation:'Baixa-Chiado ',
+    },
+    texts: [
+      "Amália Rodrigues, the famous fado singer, was once a regular at Adega Machado, sometimes performing for the other patrons.",
+      "The Romans called a local tribe Lusitans. According to legend, the name was inspired by Lusus, the son of the Roman god of wine:  Bacchus.",
+      "Portugal is home to over 250 native grape varieties, many of which aren’t grown anywhere else in the world."
+    ],
+    mapImage: "/images/tour-map.png",
+    label: "original",
+    icons: ["/images/icons/music.svg"],
+    additionalInfo:[
+      {
+        title: "What's Included",
+        items:[
+          "Welcome drink by the Terrace;",
+          "  • Tasting of 7 selected wines from different regions in Portugal",
+          "  • Guidance by professional sommelier;",
+          "  • Sample of local cheeses and charcuterie",
+          "  • Not included: gratuities",
+          
+        ],
+      },
+      {
+        title: "Who This Is For",
+        items:  [
+          "◻ Not allowed for people under 18.",
+        ],
+      },
+      {
+        title: "More You Should Know",
+        items:  [
+          "• For a full refund, cancel at least 24 hours in advance of the start date of the experience.",
+          
+        ]
+      },
+
+      
+    ]
+    
+  }
+];

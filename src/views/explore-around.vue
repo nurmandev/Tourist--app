@@ -1,5 +1,19 @@
 <template>
-    <div class="p-4 pb-20" v-if="data">
+    <div
+    v-motion
+    :initial="{
+      opacity: 0,
+      y: 100,
+    }"
+    :enter="{
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 100,
+        duration: 800,
+      },
+    }"
+     class="py-4 " v-if="data">
         <a href="/explore-lisbon" class="flex cursor-pointer justify-center w-[50px] bg-white p-2 rounded-lg ">
         <ArrowLeft />
       </a>

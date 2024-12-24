@@ -23,7 +23,7 @@
     --input: 214.3 31.8% 91.4%;
 
     --primary: 339, 98%, 56%, 1;
-    --primary-foreground: 0, 0%, 100%;
+    --primary-foreground:0, 0%, 100%, 1;
     --primary-gray:0, 0%, 96%, 1;
 
     --secondary: 252, 96%, 27%, 0.08;

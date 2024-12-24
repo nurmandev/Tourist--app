@@ -1,6 +1,19 @@
 <template>
   <div
-   class="p-2 py-4 mb-20 text-black relative z-10 max-w-sm mx-auto">
+  v-motion
+    :initial="{
+      opacity: 0,
+      y: 100,
+    }"
+    :enter="{
+      opacity: 1,
+      y: 0,
+      transition: {
+        delay: 100,
+        duration: 800,
+      },
+    }"
+   class=" py-4 text-black relative z-10 ">
     <!-- Header -->
     <header class="mb-4">
       <a href="/?filter=Getting+to+know+Lisbon" class="flex cursor-pointer justify-center w-[50px] bg-white p-2 rounded-lg ">
@@ -19,7 +32,7 @@
       <p class="text-[2.5rem]">😎</p>
     </div>
         </SheetTrigger>
-      <SheetContent  side="bottom" class="h-[90vh] bg-transparent p-0 mt-0 z-50 overflow-y-scroll rounded-t-[20px]" >
+      <SheetContent  side="bottom" class="h-[65vh] bg-transparent p-0 mt-0 z-50 overflow-y-scroll rounded-t-[20px]" >
         <div class="bg-white  pb-5">
           <Carousel :slides="discoverSlides" />
           <button

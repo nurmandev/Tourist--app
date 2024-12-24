@@ -4,7 +4,7 @@ import { useRouter, useRoute } from 'vue-router'
 import { cards, filters } from '@/constant/home-data'
 import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
-import {  Search } from 'lucide-vue-next'
+import {  ArrowDownUp, Search } from 'lucide-vue-next'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
 import CardSkeleton from './layout/card-skeleton.vue'
 import GetToKnowLisbon from '@/views/Get-to-know-Lisbon.vue'
@@ -18,6 +18,7 @@ const route = useRoute()
 const isLoading = ref(true)
 const searchQuery = ref('')
 const activeFilter = ref('')
+const isSortedList = ref(false);
 
 const filteredCards = computed(() => {
   let result = cards;
@@ -46,6 +47,12 @@ const filteredCards = computed(() => {
     }
     
   }
+
+  if (isSortedList.value) {
+        result = [...result].sort((a, b) => a.title.localeCompare(b.title));
+      }
+
+     
 
   return result;
 });
@@ -86,15 +93,15 @@ onMounted(() => {
 </script>
 
 <template>
-  <div class="p-2 py-4 mb-20 text-black">
+  <div class="py-4 text-black">
     <!-- Header -->
     <header class="mb-4">
       <h1 class="text-2xl font-semibold">Hey there, <br/> here's Toby's list</h1>
-      <Dialog>
+      <Dialog >
   <DialogTrigger asChild>
     <a href="#" class="text-primary hover:underline text-md mt-2">See Toby's notes for you</a>
   </DialogTrigger>
-  <DialogContent>
+  <DialogContent class=' rounded-lg'>
     <DialogHeader>
       <DialogTitle>Toby's notes</DialogTitle>
       
@@ -147,6 +154,9 @@ onMounted(() => {
   </div>
   <div class="text-sm flex items-center gap-x-2">
     <FilterDrawer  @apply-filters="handleFilters"/>
+    <span @click="isSortedList = !isSortedList" class="bg-white rounded-lg p-2 cursor-pointer">
+            <ArrowDownUp :size="16" />
+          </span>
   </div>
 </div>
 

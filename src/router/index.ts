@@ -3,6 +3,7 @@ import Discover from "@/views/Discover.vue";
 import ExploreAround from "@/views/explore-around.vue";
 import ExploreLisbon from "@/views/explore-lisbon.vue";
 import Home from "@/views/Home.vue";
+import TourDetails from "@/views/tour-details.vue";
 import { createWebHistory, createRouter } from "vue-router";
 
 
@@ -12,6 +13,12 @@ const routes = [
     path: "/",
     name: "Home",
     component: Home,
+  },
+  {
+    path: '/tour/:id',
+    name: 'TourDetails',
+    component: TourDetails,
+    props: true,
   },
   {
     path: "/explore-lisbon",
