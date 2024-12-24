@@ -1,25 +1,4 @@
-<script setup>
-import { useRoute, useRouter } from "vue-router";
-import { ChevronRight, SquareArrowOutUpRight, ArrowLeft } from "lucide-vue-next";
-import { CardFullData } from "@/constant/card-data"; 
-import TourDetailSheet from "@/components/layout/tour-detail-sheet.vue";
-import DidYouKnow from "@/components/layout/did-you-know.vue";
-import Button from "@/components/ui/button/Button.vue";
-import TruncateText from "@/components/layout/truncateText.vue";
 
-const route = useRoute(); 
-const router = useRouter(); 
-
-// Fetch the ID from the route parameters
-const id = Number(route.params.id);
-//console.log(CardFullData)
-// Fetch the product based on the ID
-const tour = CardFullData.find(item => item.id === id) || null;
-// Handle back navigation
-const goBack = () => {
-  router.push("/");
-};
-</script>
 
 <template>
   <div
@@ -154,3 +133,26 @@ const goBack = () => {
     <Button @click="goBack" class=" mt-2">Go Back</Button>
   </div>
 </template>
+
+<script setup>
+import { useRoute, useRouter } from "vue-router";
+import { ChevronRight, SquareArrowOutUpRight, ArrowLeft } from "lucide-vue-next";
+import { CardFullData } from "@/constant/card-data"; 
+import TourDetailSheet from "@/components/layout/tour-detail-sheet.vue";
+import DidYouKnow from "@/components/layout/did-you-know.vue";
+import Button from "@/components/ui/button/Button.vue";
+import TruncateText from "@/components/layout/truncateText.vue";
+
+const route = useRoute(); 
+const router = useRouter(); 
+
+// Fetch the ID from the route parameters
+const id = Number(route.params.id);
+//console.log(CardFullData)
+// Fetch the product based on the ID
+const tour = CardFullData.find(item => item.id === id) || null;
+// Handle back navigation
+const goBack = () => {
+  router.push("/");
+};
+</script>

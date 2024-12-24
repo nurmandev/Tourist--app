@@ -193,7 +193,7 @@
   </template>
   
   <script setup lang="ts">
-  import { SlidersHorizontal, ArrowDownUp } from 'lucide-vue-next'
+  import {SlidersHorizontal} from 'lucide-vue-next'
 import {
   Sheet,
   SheetContent,

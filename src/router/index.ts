@@ -3,6 +3,7 @@ import Discover from "@/views/Discover.vue";
 import ExploreAround from "@/views/explore-around.vue";
 import ExploreLisbon from "@/views/explore-lisbon.vue";
 import Home from "@/views/Home.vue";
+// @ts-ignore
 import TourDetails from "@/views/tour-details.vue";
 import { createWebHistory, createRouter } from "vue-router";
 
