@@ -140,7 +140,7 @@ import TourDetailSheet from "@/components/shared/tour-detail-sheet.vue";
 import DidYouKnow from "@/components/shared/did-you-know.vue";
 import Button from "@/components/ui/button/Button.vue";
 import TruncateText from "@/components/shared/truncateText.vue";
-import CheckAvailability from "@/components/shared/book-details.vue/check-availability.vue";
+import CheckAvailability from "@/components/shared/tour-details/check-availability.vue";
 
 const route = useRoute(); 
 const router = useRouter(); 

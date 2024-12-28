@@ -3,11 +3,11 @@ import { computed, ref, watch } from 'vue';
 import { useRoute, useRouter } from 'vue-router';
 import { z } from 'zod';
 import { Card, CardContent } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
-import Timer from '@/components/shared/book-details.vue/timer.vue';
-import Payment from '@/components/shared/book-details.vue/payment.vue';
+import Timer from '@/components/shared/tour-details/timer.vue';
+import Payment from '@/components/shared/tour-details/payment.vue';
 import BackButton from '@/components/shared/back-button.vue';
+import FloatingInput from '@/components/shared/tour-details/floating-input.vue';
 
 const formSchema = z.object({
   email: z.string().email(),
@@ -103,28 +103,27 @@ const onMBWayComplete = () => {
     }"
         >
           <h2 class="text-xl font-semibold mb-4">Checkout</h2>
-          <p class="text-sm text-gray-600">
+          <p class="text-sm">
             Tell us your email and/or mobile phone to receive the tickets.
           </p>
-          <div class="space-y-4 ">
+          <div class="space-y-3 ">
             <div>
-              <Input
-                v-model="email"
-                type="email"
-                placeholder="E-mail"
-                :class="{ 'border-red-500': formErrors.email }"
-              />
-              <span v-if="formErrors.email" class="text-sm text-red-500">{{ formErrors.email }}</span>
+              <FloatingInput
+      v-model="email"
+      type="email"
+      label="E-mail"
+      :error="formErrors.email"
+    />
+              
             </div>
             <div>
-              <Input
-                v-model="phone"
-                type="tel"
-                maxlength="11"
-                placeholder="Phone no."
-                :class="{ 'border-red-500': formErrors.phone }"
-              />
-              <span v-if="formErrors.phone" class="text-sm text-red-500">{{ formErrors.phone }}</span>
+              <FloatingInput
+      v-model="phone"
+      type="tel"
+      label="Phone no."
+       maxlength="11"
+      :error="formErrors.phone"
+    />
             </div>
             <Button @click="handleSubmit" class="w-full !mt-36">Continue</Button>
           </div>
