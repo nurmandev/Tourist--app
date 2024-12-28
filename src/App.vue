@@ -8,7 +8,7 @@
 </template>
 
 <script lang='ts'>
-import Footer from './components/layout/footer.vue';
+import Footer from './components/shared/footer.vue';
 export default {
   name: 'App',
   components:{Footer} 
