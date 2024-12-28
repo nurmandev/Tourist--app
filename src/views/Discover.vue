@@ -110,8 +110,8 @@ import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
 import { ArrowLeft } from 'lucide-vue-next'
 import { cards, discoverSlides } from '@/constant/home-data'
-import Carousel from '@/components/layout/carousel.vue'
-import FilterDrawer from '@/components/layout/filter-drawer.vue'
+import Carousel from '@/components/shared/carousel.vue'
+import FilterDrawer from '@/components/shared/filter-drawer.vue'
 
 const isOpen = ref(false)
 const currentSlide = ref(0)

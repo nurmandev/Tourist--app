@@ -6,11 +6,11 @@ import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
 import {  ArrowDownUp, Search } from 'lucide-vue-next'
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
-import CardSkeleton from './layout/card-skeleton.vue'
+import CardSkeleton from './shared/card-skeleton.vue'
 import GetToKnowLisbon from '@/views/Get-to-know-Lisbon.vue'
-import NoData from './layout/no-data.vue'
-import Card from './layout/card.vue'
-import FilterDrawer from '@/components/layout/filter-drawer.vue'
+import NoData from './shared/no-data.vue'
+import Card from './shared/card.vue'
+import FilterDrawer from '@/components/shared/filter-drawer.vue'
 
 const router = useRouter()
 const route = useRoute()

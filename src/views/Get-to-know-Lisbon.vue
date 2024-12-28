@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import Card from '@/components/layout/card.vue';
+import Card from '@/components/shared/card.vue';
 import { defineProps } from 'vue';
 
 interface CardType {
