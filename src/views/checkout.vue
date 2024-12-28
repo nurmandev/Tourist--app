@@ -154,7 +154,7 @@ const onMBWayComplete = () => {
               v-if="isIOS"
               class="w-full bg-[#00001E] text-white rounded-lg p-3 flex items-center justify-center space-x-2"
             >
-            <img src="/images/logos/apple-pay.svg" alt="apple pay" class=" w-full h-[1.35rem] object-contain" 
+            <img src="/images/logos/apple-pay.svg" alt="apple pay" class=" w-full h-8 object-contain" 
             </button>
             <button
               v-else
