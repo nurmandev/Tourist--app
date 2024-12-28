@@ -1,13 +1,14 @@
 // PaymentForm.vue
 <script setup lang="ts">
 import { ref, watch } from 'vue';
-import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
+import { useRouter } from 'vue-router';
+import FloatingInput from './floating-input.vue';
 
 const props = defineProps<{
   selectedMethod: string
 }>();
-
+ const router = useRouter();
 const emit = defineEmits(['mbway-complete']);
 
 const cardDetails = ref({
@@ -66,7 +67,8 @@ const handleCardSubmit = () => {
 
 const handleMBWaySubmit = () => {
   if (validateMBWay()) {
-    emit('mbway-complete');
+    router.push('/mbway-timer')
+    //emit('mbway-complete');
   }
 };
 
@@ -97,40 +99,42 @@ watch(() => props.selectedMethod, () => {
       },
     }"
     >
-      <Input
+      <FloatingInput
         v-model="cardDetails.number"
         placeholder="Card number"
         maxlength="16"
-        :class="{ 'border-red-500': formErrors.card.number }"
+        type="text"
+        label="Card no."
+        :error="formErrors.card.number"
       />
-      <span v-if="formErrors.card.number" class="text-sm text-red-500">{{ formErrors.card.number }}</span>
-      
-      <Input
-        v-model="cardDetails.name"
-        placeholder="Cardholder name"
-        :class="{ 'border-red-500': formErrors.card.name }"
+      <FloatingInput
+      v-model="cardDetails.name"
+      placeholder="Cardholder name"
+      type="text"
+      label="Card name"
+      :error="formErrors.card.name"
       />
-      <span v-if="formErrors.card.name" class="text-sm text-red-500">{{ formErrors.card.name }}</span>
       
       <div class="grid grid-cols-2 gap-3">
         <div>
-          <Input
-            v-model="cardDetails.expiry"
-            placeholder="MM/YY"
-            maxlength="5"
-            :class="{ 'border-red-500': formErrors.card.expiry }"
-          />
-          <span v-if="formErrors.card.expiry" class="text-sm text-red-500">{{ formErrors.card.expiry }}</span>
+          <FloatingInput
+          v-model="cardDetails.expiry"
+          placeholder="MM/YY"
+          maxlength="5"
+          type="tel"
+          label="MM/YY"
+          :error="formErrors.card.expiry"
+    />
         </div>
         <div>
-          <Input
+          <FloatingInput
             v-model="cardDetails.cvv"
             placeholder="CVV"
             maxlength="3"
             type="password"
-            :class="{ 'border-red-500': formErrors.card.cvv }"
+            label="CVV"
+            :error="formErrors.card.cvv"
           />
-          <span v-if="formErrors.card.cvv" class="text-sm text-red-500">{{ formErrors.card.cvv }}</span>
         </div>
       </div>
       <Button @click="handleCardSubmit" class="w-full !mt-5 !mb-3">Pay Now</Button>
@@ -174,14 +178,14 @@ watch(() => props.selectedMethod, () => {
       },
     }"
     >
-      <Input
+    <FloatingInput
         v-model="mbwayPhone"
         placeholder="Phone number"
         type="tel"
+        label="Phone no."
         maxlength="11"
-        :class="{ 'border-red-500': formErrors.mbway.phone }"
-      />
-      <span v-if="formErrors.mbway.phone" class="text-sm text-red-500">{{ formErrors.mbway.phone }}</span>
+      :error="formErrors.mbway.phone"
+    />
       <Button @click="handleMBWaySubmit" class="w-full !mt-5 !mb-3">Pay with MBWay</Button>
     </div>
   </div>

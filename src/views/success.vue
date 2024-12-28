@@ -1,5 +1,3 @@
-
-
 <template>
   
         <div class="flex flex-col gap-y-5 items-center justify-center xsm:h-full lg:h-full h-full mt-10  text-center px-2">
@@ -44,11 +42,11 @@
     </CardContent>
     </Card>
     <a href="/" class=" h-12 flex items-center justify-center rounded-2xl border-2 border-gray-600 w-full hover:bg-white mt-10">
-       Go Back
+      Go Back
     </a>
     </div>
-   
   </template>
+
   <script setup lang="ts">
 import Card from '@/components/ui/card/Card.vue';
   import CardContent from '@/components/ui/card/CardContent.vue';
@@ -63,11 +61,11 @@ const userEmail = ref('');
     confetti({
       particleCount: 100, // Number of confetti pieces
       spread: 70,         // Spread angle
-      origin: { y: 0.6 }, // Starting point on the page
-      colors: ['#FFC107', '#FF4081', '#03A9F4'], // Custom colors for confetti
+      origin: { y: 0.6 }, // Starting point on the page.
+      colors: ['#FFC107', '#FF4081', '#03A9F4'], 
     });
 
-    const duration = 4000; // 4 seconds
+    const duration = 3000; // 3 seconds
     const animationEnd = Date.now() + duration;
     const interval = setInterval(() => {
       const timeLeft = animationEnd - Date.now();
@@ -82,5 +80,3 @@ const userEmail = ref('');
     }, 250);
   });
   </script>
-  
- 
