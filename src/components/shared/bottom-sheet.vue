@@ -6,7 +6,7 @@
             <DialogTitle class="text-xl font-medium pt-3">{{ title }}</DialogTitle>
            
           </div>
-          <div class="px-6 pb-6 w-full">
+          <div class="px-4 pb-6 w-full">
             <slot />
           </div>
         </div>
