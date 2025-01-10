@@ -72,7 +72,7 @@ type TimeInfo = {
     icons: ["/images/icons/music.svg"],
     additionalInfo:[
       {
-        title: "What's Included",
+        title: "What's included",
         items:[
           "Tasting of 7 traditional codfish dishes:",
           "  • Salada de Bacalhau: A refreshing codfish salad with chickpeas, onions, and olive oil",
@@ -87,7 +87,7 @@ type TimeInfo = {
         ],
       },
       {
-        title: "Who This Is For",
+        title: "Who this is for",
         items:  [
           "◻ Most travelers can participate;",
           "◻ In case of food allergies or diet restrictions, indicate it at the time of booking.",
@@ -96,7 +96,7 @@ type TimeInfo = {
         ],
       },
       {
-        title: "More You Should Know",
+        title: "More you should know",
         items:  [
           "• This experience requires a minimum number of travelers. If it’s canceled because the minimum isn’t met, you’ll be offered a different date/experience or a full refund.",
           "• For a full refund, cancel at least 24 hours in advance of the start date of the experience.",
@@ -137,7 +137,7 @@ type TimeInfo = {
     icons: ["/images/icons/music.svg"],
     additionalInfo:[
       {
-        title: "What's Included",
+        title: "What's included",
         items:[
           "Welcome drink by the Terrace;",
           "  • Tasting of 7 selected wines from different regions in Portugal",
@@ -148,13 +148,13 @@ type TimeInfo = {
         ],
       },
       {
-        title: "Who This Is For",
+        title: "Who this is for",
         items:  [
           "◻ Not allowed for people under 18.",
         ],
       },
       {
-        title: "More You Should Know",
+        title: "More you should know",
         items:  [
           "• For a full refund, cancel at least 24 hours in advance of the start date of the experience.",
           
@@ -165,6 +165,139 @@ type TimeInfo = {
     ]
     
   },
+  {
+    id: 4,
+    title: "A toast to Fado at Café Luso",
+    image: "/images/home4.png",
+    shares: 61,
+   // categories: ["FOR YOU", "TOBY'S CHOICE"],
+    price: 10,
+    about:
+      "End your evening at the world’s oldest Fado house. Enjoy a nightcap as the soulful voices of Fado singers transport you to the heart of Portuguese tradition. In this historic setting, every note resonates with passion, every sip enhances the magic. Raise your glass to the timeless art of Fado—a night to remember.",
+    tags: ["Portuguese cuisine", "Seafood", "Traditional", "Chef's special", "Fish"],
+    time: {
+      opens: "12:00",
+      closes: "23:00",
+      daysOfOperation: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    },
+    distance: {
+      time: "2h",
+        location: "Café Luso",
+        locationFull: "R. do Norte 91, 1200-284 Lisboa",
+        availability: "Mon to Sat | between 19h - 1h",
+        nearestStation:' Baixa-Chiado',
+    },
+    texts: [
+      "Café Luso was established in 1927, and is now the oldest operating fado house in the world.",
+      "The Romans called a local tribe Lusitans. According to legend, the name was inspired by Lusus, the son of the Roman god of wine:  Bacchus.",
+      "Portugal is home to over 250 native grape varieties, many of which aren’t grown anywhere else in the world."
+    ],
+    mapImage: "/images/tour-map.png",
+    label: "original",
+    icons: ["/images/icons/music.svg"],
+    additionalInfo:[
+      {
+        title: "What's included",
+        items:[
+          "  • Seat reservation;",
+          "  • Ticket price deducted from your bill;",
+          "  • Fado show;",
+          "  • Complimentary ginginha (our sour cherry Liquor).",
+          
+        ],
+      },
+      {
+        title: "What to expect ",
+        items:  [
+          "• Fado show with professional fado singers, and guitarists playing classic and Portuguese guitar.",
+        ],
+      },
+      {
+        title: "Who this is for",
+        items:  [
+          "◻ Not suitable for small children.",
+        ],
+      },
+      {
+        title: "More you should know",
+        items:  [
+          "• For a full refund, cancel at least 24 hours in advance of the start date of the experience.",
+          
+        ]
+      },
+
+      
+    ]
+    
+  },
+
+  {
+    id: 5,
+    title: "Fado dinner in iconic Adega Machado",
+    image: "/images/home5.png",
+    shares: 61,
+   // categories: ["FOR YOU", "TOBY'S CHOICE"],
+    price: 40,
+    about:
+      "Immerse yourself in the soul of Lisbon with an unforgettable Fado dinner at Adega Machado. Savor authentic Portuguese cuisine as the haunting melodies of Fado fill the air, performed by some of the city's finest singers. In this historic venue, every note tells a story of love, loss, and longing—a true celebration of Portugal’s heart and heritage. An experience that feeds both the soul and the senses.",
+    tags: ["Portuguese cuisine", "Seafood", "Traditional", "Chef's special", "Fish"],
+    time: {
+      opens: "12:00",
+      closes: "23:00",
+      daysOfOperation: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"]
+    },
+    distance: {
+      time: "2h",
+        location: "Adega Machado",
+        locationFull: "R. do Norte 91, 1200-284 Lisboa",
+        availability: "Everyday between 12h - 24h",
+        nearestStation:' Baixa-Chiado',
+    },
+    texts: [
+      "Amália Rodrigues, the famous fado singer, was once a regular at Adega Machado, sometimes performing for the other patrons.",
+      "The Romans called a local tribe Lusitans. According to legend, the name was inspired by Lusus, the son of the Roman god of wine:  Bacchus.",
+      "Portugal is home to over 250 native grape varieties, many of which aren’t grown anywhere else in the world."
+    ],
+    mapImage: "/images/tour-map.png",
+    label: "original",
+    icons: ["/images/icons/music.svg"],
+    additionalInfo:[
+      {
+        title: "What's included",
+        items:[
+          "  • A la carte dinner",
+          "  • Fado show starting at 21:30;",
+          "  • Ticket price deducted from your bill;",
+          "  • Complimentary glass of Port wine.",
+          
+        ],
+      },
+      {
+        title: "What to expect ",
+        items:  [
+          "• A la carte dinner Fado show with professional fado singers, and guitarists playing classic and Portuguese guitar.",
+        ],
+      },
+      {
+        title: "Who this is for",
+        items:  [
+          "◻ In case of food allergies or diet restrictions, indicate it at the time of booking;",
+          "◻ Not suitable for small children.",
+        ],
+      },
+      {
+        title: "More you should know",
+        items:  [
+          "• For a full refund, cancel at least 24 hours in advance of the start date of the experience.",
+          
+        ]
+      },
+
+      
+    ]
+    
+  },
+ 
 
   {
     id: 6,
@@ -197,7 +330,7 @@ type TimeInfo = {
     icons: ["/images/icons/music.svg"],
     additionalInfo:[
       {
-        title: "What's Included",
+        title: "What's included",
         items:[
           "Welcome drink by the Terrace;",
           "  • Tasting of 7 selected wines from different regions in Portugal",
@@ -208,13 +341,13 @@ type TimeInfo = {
         ],
       },
       {
-        title: "Who This Is For",
+        title: "Who this is for",
         items:  [
           "◻ Not allowed for people under 18.",
         ],
       },
       {
-        title: "More You Should Know",
+        title: "More you should know",
         items:  [
           "• For a full refund, cancel at least 24 hours in advance of the start date of the experience.",
           

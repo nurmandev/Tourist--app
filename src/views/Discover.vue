@@ -32,15 +32,9 @@
       <p class="text-[2.5rem]">😎</p>
     </div>
         </SheetTrigger>
-      <SheetContent  side="bottom" class="h-[65vh] bg-transparent p-0 mt-0 z-50 overflow-y-scroll rounded-t-[20px]" >
+      <SheetContent  side="bottom" class="h-[80vh] bg-transparent p-0 mt-0 z-50 overflow-y-scroll rounded-t-[20px]" >
         <div class="bg-white  pb-5">
           <Carousel :slides="discoverSlides" />
-          <button
-            @click="nextSlide"
-            class="w-[90%] flex justify-center mx-auto bg-primary text-white py-3 rounded-lg mt-2  transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
-          >
-            {{ currentSlide < discoverSlides.length - 1 ? 'Wow, nice! Next' : 'Finish' }}
-          </button>
         </div>
       </SheetContent>
     </Sheet>
@@ -110,8 +104,8 @@ import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
 import { ArrowLeft } from 'lucide-vue-next'
 import { cards, discoverSlides } from '@/constant/home-data'
-import Carousel from '@/components/layout/carousel.vue'
-import FilterDrawer from '@/components/layout/filter-drawer.vue'
+import Carousel from '@/components/shared/carousel.vue'
+import FilterDrawer from '@/components/shared/filter-drawer.vue'
 
 const isOpen = ref(false)
 const currentSlide = ref(0)
@@ -121,17 +115,17 @@ const openDrawer = () => {
   currentSlide.value = 0
 }
 
-const closeDrawer = () => {
-  isOpen.value = false
-}
+// const closeDrawer = () => {
+//   isOpen.value = false
+// }
 
-const nextSlide = () => {
-  if (currentSlide.value < discoverSlides.length - 1) {
-    currentSlide.value++
-  } else {
-    closeDrawer()
-  }
-}
+// const nextSlide = () => {
+//   if (currentSlide.value < discoverSlides.length - 1) {
+//     currentSlide.value++
+//   } else {
+//     closeDrawer()
+//   }
+// }
 
 const handleFilters = (filters:any) => {
   // Handle the selected filters

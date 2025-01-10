@@ -1,5 +1,4 @@
 
-
 <template>
   <div
   v-motion
@@ -66,6 +65,12 @@
       </div>
 
      </div>
+      <!-- Toby notes Section -->
+      <h2 class="text-lg font-semibold mb-2 mt-6">Toby’s notes</h2>
+      <div class="bg-[#FFFDEB] rounded-xl p-3 py-5">
+        <p>Me and my family did this walking tour and loved it.</p>
+      </div>
+
       <!-- About Section -->
       <h2 class="text-lg font-semibold mb-2 mt-6">About</h2>
       <div class="bg-white rounded-xl p-3 py-5">
@@ -99,15 +104,8 @@
           >{{tag}}</div>
       </div>
 
-      <!-- Action Button -->
-      <div class="bg-white rounded-xl py-5 px-3 mt-5">
-        <h3>Ready? Let’s roll!</h3>
-        <button
-          class="w-full bg-primary text-white flex items-center justify-center gap-x-3 py-3 mt-4 rounded"
-        >
-          <SquareArrowOutUpRight /> Check availability
-        </button>
-      </div>
+      <!-- Check Availabilty - Action Button -->
+     <CheckAvailability />
     </div>
      <!-- Additional Sections -->
     
@@ -138,10 +136,11 @@
 import { useRoute, useRouter } from "vue-router";
 import { ChevronRight, SquareArrowOutUpRight, ArrowLeft } from "lucide-vue-next";
 import { CardFullData } from "@/constant/card-data"; 
-import TourDetailSheet from "@/components/layout/tour-detail-sheet.vue";
-import DidYouKnow from "@/components/layout/did-you-know.vue";
+import TourDetailSheet from "@/components/shared/tour-detail-sheet.vue";
+import DidYouKnow from "@/components/shared/did-you-know.vue";
 import Button from "@/components/ui/button/Button.vue";
-import TruncateText from "@/components/layout/truncateText.vue";
+import TruncateText from "@/components/shared/truncateText.vue";
+import CheckAvailability from "@/components/shared/tour-details/check-availability.vue";
 
 const route = useRoute(); 
 const router = useRouter(); 
