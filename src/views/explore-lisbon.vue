@@ -1,4 +1,6 @@
 <script setup lang="ts">
+// @ts-ignore
+import TruncateText from '@/components/shared/truncateText.vue';
 import { exploreLocations } from '@/constant/home-data';
 import { ArrowLeft } from 'lucide-vue-next';
   </script>
@@ -8,14 +10,14 @@ import { ArrowLeft } from 'lucide-vue-next';
     v-motion
     :initial="{
       opacity: 0,
-      y: 100,
+      x: 100,
     }"
     :enter="{
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
-        delay: 100,
-        duration: 800,
+        delay: 50,
+        duration: 300,
       },
     }"
     class="w-full text-gray-900 ">
@@ -29,11 +31,8 @@ import { ArrowLeft } from 'lucide-vue-next';
       </header>
       <!-- About Section -->
       <section class="p-6 w-full bg-white rounded-lg shadow mt-6">
-        <h1 class="text-2xl font-medium">About</h1>
-        <p class="mt-2 text-gray-700">
-          Lisbon is one of the oldest cities in the world and the second-oldest European capital city (after Athens), predating other...
-        </p>
-        <a href="#" class="text-primary mt-2 inline-block font-semibold">View more</a>
+        <h1 class="text-2xl font-medium mb-2">About</h1>
+        <TruncateText :text="'Lisbon is one of the oldest cities in the world and the second-oldest European capital city (after Athens), predating other.'" :maxLength="110" />
       </section>
   
       <!-- Trendy Neighborhoods -->

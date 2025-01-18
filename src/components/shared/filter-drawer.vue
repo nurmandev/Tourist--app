@@ -8,7 +8,7 @@
           </span>
         </SheetTrigger>
   
-        <SheetContent side="right" class="w-full font-medium sm:max-w-md overflow-y-auto bg-white px-4">
+        <SheetContent side="bottom" class="w-full h-[50vh] mx-auto rounded-2xl font-medium sm:max-w-md overflow-y-auto bg-white px-4 no-scrollbar">
           <SheetHeader>
             <SheetTitle class='text-left text-2xl pt-8'>Filters</SheetTitle>
           </SheetHeader>

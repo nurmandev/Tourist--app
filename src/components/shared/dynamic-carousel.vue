@@ -1,79 +1,96 @@
 <template>
-    <div class="relative w-full overflow-hidden">
+  <div class="relative w-full overflow-hidden">
+    <!-- Swiper Container -->
+    <swiper-container
+      :slides-per-view="1"
+      :space-between="30"
+      :autoplay-delay="5000"
+      :autoplay-disable-on-interaction="false"
+      :pagination="{
+        clickable: true,
+        bulletClass: 'swiper-pagination-bullet custom-bullet',
+        bulletActiveClass: 'swiper-pagination-bullet-active custom-bullet-active'
+      }"
+      class="swiper-container custom-pagination"
+    >
       <!-- Slides -->
-      <div 
-        class="flex transition-transform duration-300 ease-in-out"
-        :style="{ transform: `translateX(-${currentSlide * 100}%)` }"
-      >
-        <div 
-          v-for="(slide, index) in slides" 
-          :key="index" 
-          class="w-full flex justify-between gap-x-4 flex-shrink-0 mb-5"
-        >
-          <!-- Use default slot for each slide content -->
-          <slot :name="`slide-${index}`">{{ slide }}</slot>
-          <img src="/images/icons/chat-bot.svg" alt="Chat bot" class="w-16 object-cover h-14 ">
+      <swiper-slide v-for="(slide, index) in slides" :key="index">
+        <div class="w-full flex justify-between gap-x-4 flex-shrink-0 mb-5">
+          <!-- Slot for custom content -->
+          <slot :name="`slide-${index}`">
+            {{ slide }}
+          </slot>
+          <img
+            src="/images/icons/chat-bot.svg"
+            alt="Chat bot"
+            class="w-16 object-cover h-14"
+          />
         </div>
-      </div>
-  
-      <!-- Navigation dots -->
-      <div class="absolute bottom-0 left-1/2 transform -translate-x-1/2 flex justify-center space-x-2">
-        <button
-          v-for="(_, index) in slides"
-          :key="index"
-          @click="goToSlide(index)"
-          class="h-2 w-5 rounded-full transition-all duration-300 focus:outline-none focus:ring-0 focus:bg-primary"
-          :class="currentSlide === index ? 'bg-primary' : 'bg-gray-100'"
-          :aria-label="`Go to slide ${index + 1}`"
-        />
-      </div>
-    </div>
-  
+      </swiper-slide>
+    </swiper-container>
+
     <!-- Conditionally render the Next button -->
     <button
-      v-if="showNextButton" 
+      v-if="showNextButton"
       @click="nextSlide"
       class="w-[90%] flex justify-center mx-auto bg-primary text-white py-3 rounded-lg mt-2 transition-colors focus:outline-none focus:ring-2 focus:ring-primary"
     >
-      Wow, nice! Next 
+      Wow, nice! Next
     </button>
-  </template>
-  
-  <script setup lang="ts">
-  import { ref, onMounted, onUnmounted } from 'vue'
-  
-  const props = defineProps<{
-    slides:  any[];
-    showNextButton: boolean // Prop to control visibility of the next button
-  }>();
-  
-  const currentSlide = ref(0);
-  let autoplayInterval: number | null = null;
-  
-  const nextSlide = () => {
-    currentSlide.value = (currentSlide.value + 1) % props.slides.length;
+  </div>
+</template>
+
+<script setup lang="ts">
+import { register } from 'swiper/element/bundle';
+
+register();
+
+// Props for slides and button visibility
+defineProps<{
+  slides: any[];
+  showNextButton: boolean;
+}>();
+
+// Custom function for next slide
+const nextSlide = () => {
+  const swiper = document.querySelector('swiper-container');
+  if (swiper) {
+    const swiperInstance = swiper.swiper;
+    swiperInstance.slideNext();
   }
-  
-  const goToSlide = (index: number) => {
-    currentSlide.value = index;
-  }
-  
-  const startAutoplay = () => {
-    autoplayInterval = setInterval(nextSlide, 5000) as unknown as number;
-  }
-  
-  const stopAutoplay = () => {
-    if (autoplayInterval) {
-      clearInterval(autoplayInterval);
-    }
-  }
-  
-  onMounted(() => {
-    startAutoplay();
-  })
-  
-  onUnmounted(() => {
-    stopAutoplay();
-  })
-  </script>
-  
+};
+</script>
+
+<style>
+/* Custom Swiper styles */
+.custom-pagination {
+  --swiper-pagination-bottom: 10px;
+  --swiper-pagination-bullet-inactive-color: #999999;
+  --swiper-pagination-color: #fd216e;
+  --swiper-pagination-bullet-size: 20px;
+  --swiper-pagination-bullet-height: 9px;
+  --swiper-pagination-bullet-inactive-opacity: 0.2;
+  --swiper-pagination-bullet-opacity: 1;
+  --swiper-pagination-bullet-border-radius: 5px;
+}
+
+.custom-bullet {
+  width: var(--swiper-pagination-bullet-size) !important;
+  height: var(--swiper-pagination-bullet-height) !important;
+  border-radius: var(--swiper-pagination-bullet-border-radius) !important;
+  background: var(--swiper-pagination-bullet-inactive-color) !important;
+  opacity: var(--swiper-pagination-bullet-inactive-opacity) !important;
+  margin: 0 4px !important;
+  transition: all 0.3s ease;
+}
+
+.custom-bullet-active {
+  opacity: var(--swiper-pagination-bullet-opacity) !important;
+  background: var(--swiper-pagination-color) !important;
+  width: calc(var(--swiper-pagination-bullet-size) * 1.2) !important; /* Slightly wider when active */
+}
+
+.custom-bullet:hover {
+  opacity: 0.5 !important;
+}
+</style>

@@ -4,14 +4,14 @@
   v-motion
     :initial="{
       opacity: 0,
-      y: 100,
+      x: 100,
     }"
     :enter="{
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
-        delay: 100,
-        duration: 800,
+        delay: 50,
+        duration: 300,
       },
     }"
    v-if="tour" class="detail-page overflow-y-hidden">
@@ -74,7 +74,7 @@
       <!-- About Section -->
       <h2 class="text-lg font-semibold mb-2 mt-6">About</h2>
       <div class="bg-white rounded-xl p-3 py-5">
-        <TruncateText :text="tour.about" :maxLength="170" />
+        <TruncateText :text="tour.about" :maxLength="120" />
       </div>
 
       <!-- Did You Know Section -->
@@ -127,8 +127,8 @@
   <!-- Fallback for invalid ID -->
   <div v-else class=" flex flex-col justify-center gap-y-4 text-lg text-center mt-20">
     <img src="/images/empty.png" alt="no data found" class="w-[70%] mx-auto">
-    <p>Tour not available. Please check the URL or go back.</p>
-    <Button @click="goBack" class=" mt-2">Go Back</Button>
+    <p>We're sorry, this experience is not available right now. Check other exciting experiences below.</p>
+    <Button @click="goBack" class=" mt-2">Explore</Button>
   </div>
 </template>
 

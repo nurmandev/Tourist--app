@@ -3,14 +3,14 @@
   v-motion
     :initial="{
       opacity: 0,
-      y: 100,
+      x: 100,
     }"
     :enter="{
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
-        delay: 100,
-        duration: 800,
+        delay: 50,
+        duration: 500,
       },
     }"
   >
@@ -31,7 +31,7 @@
               </Button>
           </div>
 
-          <Button variant="outline" class="w-full h-12 justify-start">
+          <Button v-if="bookingData?.selectedLanguage?.name" variant="outline" class="w-full h-12 justify-start">
               <img
                   :src="`https://flagcdn.com/w320/${bookingData?.selectedLanguage?.code}.png`"
                   :alt="`${bookingData?.selectedLanguage?.name} flag`"

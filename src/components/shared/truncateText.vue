@@ -9,12 +9,12 @@
           @click="toggleTruncate"
           class="cursor-pointer mt-2 flex items-end justify-end text-right text-primary font-medium"
         >
-          {{ isTruncated ? 'View More' : 'Show Less' }}
+          {{ isTruncated ? 'View More' : 'View Less' }}
         </span>
     </div>
   </template>
   
-  <script>
+  <script lang="ts"> 
   export default {
     props: {
       text: {

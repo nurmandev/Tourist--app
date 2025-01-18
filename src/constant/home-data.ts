@@ -20,41 +20,41 @@ export const filters = [
       image: "/images/icons/filter-4.svg",
       route:'/Getting-to-know-Lisbon'
     },
-    {
-        id: 5,
-        title: "Lisbon heritage",
-        image: "/images/icons/filter-5.svg",
-      },
-      {
-        id: 6,
-        title: "Food & Wine",
-        image: "/images/icons/filter-6.svg",
-      },
-      {
-        id: 7,
-        title: "Where to eat",
-        image: "/images/icons/filter-7.svg",
-      },
-      {
-        id: 8,
-        title: "Bars & Nightlife",
-        image: "/images/icons/filter-8.svg",
-      },
-      {
-        id: 9,
-        title: "Outside Lisbon",
-        image: "/images/icons/filter-10.svg",
-      },
-      {
-        id: 10,
-        title: "Meet the locals",
-        image: "/images/icons/filter-9.svg",
-      },
-      {
-        id: 11,
-        title: "Off the beaten track",
-        image: "/images/icons/filter-11.svg",
-      },
+    // {
+    //     id: 5,
+    //     title: "Lisbon heritage",
+    //     image: "/images/icons/filter-5.svg",
+    //   },
+      // {
+      //   id: 6,
+      //   title: "Food & Wine",
+      //   image: "/images/icons/filter-6.svg",
+      // },
+      // {
+      //   id: 7,
+      //   title: "Where to eat",
+      //   image: "/images/icons/filter-7.svg",
+      // },
+      // {
+      //   id: 8,
+      //   title: "Bars & Nightlife",
+      //   image: "/images/icons/filter-8.svg",
+      // },
+      // {
+      //   id: 9,
+      //   title: "Outside Lisbon",
+      //   image: "/images/icons/filter-10.svg",
+      // },
+      // {
+      //   id: 10,
+      //   title: "Meet the locals",
+      //   image: "/images/icons/filter-9.svg",
+      // },
+      // {
+      //   id: 11,
+      //   title: "Off the beaten track",
+      //   image: "/images/icons/filter-11.svg",
+      // },
   ];
   
   export const cards = [

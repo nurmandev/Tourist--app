@@ -9,6 +9,20 @@
 
 <script lang='ts'>
 import Footer from './components/shared/footer.vue';
+import { onMounted, watch } from 'vue';
+import { useRoute } from 'vue-router';
+const route = useRoute();
+
+// Scroll to top on component mount
+onMounted(() => {
+  window.scrollTo(0, 0);
+});
+
+// Scroll to top on route change
+watch(route, () => {
+  window.scrollTo(0, 0);
+});
+
 export default {
   name: 'App',
   components:{Footer} 

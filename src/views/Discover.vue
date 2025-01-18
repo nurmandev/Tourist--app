@@ -3,14 +3,14 @@
   v-motion
     :initial="{
       opacity: 0,
-      y: 100,
+      x: 100,
     }"
     :enter="{
       opacity: 1,
-      y: 0,
+      x: 0,
       transition: {
-        delay: 100,
-        duration: 800,
+        delay: 50,
+        duration: 300,
       },
     }"
    class=" py-4 text-black relative z-10 ">
@@ -32,7 +32,7 @@
       <p class="text-[2.5rem]">😎</p>
     </div>
         </SheetTrigger>
-      <SheetContent  side="bottom" class="h-[80vh] bg-transparent p-0 mt-0 z-50 overflow-y-scroll rounded-t-[20px]" >
+      <SheetContent  side="bottom" class="h-[80vh] bg-transparent no-scrollbar p-0 mt-0 z-50 overflow-y-scroll rounded-t-[20px]" >
         <div class="bg-white  pb-5">
           <Carousel :slides="discoverSlides" />
         </div>

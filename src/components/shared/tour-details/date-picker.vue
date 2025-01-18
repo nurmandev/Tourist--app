@@ -1,5 +1,5 @@
 <template>
-  <div class="py-4 space-y-4 pb-[19rem]">
+  <div class="space-y-4 ">
     <div class="flex gap-2">
       <button
         :class="activeOption === 'Next 2 Days' ? 'bg-primary text-white' : 'bg-white shadow-lg hover:bg-primary hover:text-white'"

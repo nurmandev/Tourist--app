@@ -6,6 +6,7 @@ import ExploreAround from "@/views/explore-around.vue";
 import ExploreLisbon from "@/views/explore-lisbon.vue";
 import Home from "@/views/Home.vue";
 import MbwayTimer from "@/views/mbway-timer.vue";
+import Search from "@/views/search.vue";
 import Success from "@/views/success.vue";
 // @ts-ignore
 import TourDetails from "@/views/tour-details.vue";
@@ -34,6 +35,11 @@ const routes = [
     path: "/discover",
     name: "Discover",
     component: Discover,
+  },
+  {
+    path: "/search",
+    name: "Search",
+    component: Search
   },
   {
     path: "/explore-around",

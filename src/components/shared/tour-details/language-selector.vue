@@ -1,5 +1,5 @@
 <template>
-    <div class="space-y-4 pb-9">
+    <div class="space-y-4">
       <button
         v-for="language in languages"
         :key="language.code"

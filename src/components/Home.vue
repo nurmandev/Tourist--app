@@ -4,13 +4,15 @@ import { useRouter, useRoute } from 'vue-router'
 import { cards, filters } from '@/constant/home-data'
 import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
-import {  ArrowDownUp, Search } from 'lucide-vue-next'
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from '@/components/ui/dialog'
+import {  ArrowDownUp, Search, X, ArrowUpDown } from 'lucide-vue-next'
+import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger, DrawerClose } from '@/components/ui/drawer'
 import CardSkeleton from './shared/card-skeleton.vue'
 import GetToKnowLisbon from '@/views/Get-to-know-Lisbon.vue'
 import NoData from './shared/no-data.vue'
+import Button from "@/components/ui/button/Button.vue";
 import Card from './shared/card.vue'
 import FilterDrawer from '@/components/shared/filter-drawer.vue'
+import SearchSheet from './shared/search-sheet.vue'
 
 const router = useRouter()
 const route = useRoute()
@@ -19,7 +21,20 @@ const isLoading = ref(true)
 const searchQuery = ref('')
 const activeFilter = ref('')
 const isSortedList = ref(false);
+const isAscending = ref(true)   // Default sort direction: Ascending
+const isSortDropdownOpen = ref(false)  // Controls dropdown visibility
 
+// Toggle dropdown visibility
+const toggleSortDropdown = () => {
+  isSortDropdownOpen.value = !isSortDropdownOpen.value
+}
+
+// Set sort direction
+const setSortDirection = (ascending: boolean) => {
+  isAscending.value = ascending
+  isSortDropdownOpen.value = false
+  isSortedList.value = true // Ensure sorting is active
+}
 const filteredCards = computed(() => {
   let result = cards;
 
@@ -40,6 +55,9 @@ const filteredCards = computed(() => {
     case "toby's choice":
       result = result.filter(card => card.categories.some(category => category.toLowerCase() === "toby's choice"));
       break;
+      case "original from lisbon":
+      result = result.filter(card => card.label.toLowerCase() === "original");
+      break;
       case "getting to know lisbon":
         break;
       default:
@@ -49,11 +67,10 @@ const filteredCards = computed(() => {
   }
 
   if (isSortedList.value) {
-        result = [...result].sort((a, b) => a.title.localeCompare(b.title));
+    result = [...result].sort((a, b) => 
+    isAscending.value ? a.title.localeCompare(b.title) : b.title.localeCompare(a.title)
+    )
       }
-
-     
-
   return result;
 });
 
@@ -97,38 +114,51 @@ onMounted(() => {
     <!-- Header -->
     <header class="mb-4">
       <h1 class="text-2xl font-semibold">Hey there, <br/> here's Toby's list</h1>
-      <Dialog >
-  <DialogTrigger asChild>
+      <Drawer>
+  <DrawerTrigger as-Child>
     <a href="#" class="text-primary hover:underline text-md mt-2">See Toby's notes for you</a>
-  </DialogTrigger>
-  <DialogContent class=' rounded-lg'>
-    <DialogHeader>
-      <DialogTitle>Toby's notes</DialogTitle>
-      
-    </DialogHeader>
-    <div>
+  </DrawerTrigger>
+  <DrawerContent class=' bg-white pb-5 px-5'>
+    <DrawerHeader class="px-0">
+      <DrawerTitle >Toby's notes</DrawerTitle>
+    </DrawerHeader>
+    <div class="pb-5">
       <h3>About the list</h3>
      <p  class="bg-[#ededed] p-3 rounded-lg mt-2 text-sm">I've handpicked some awesome experiences with just the perfect balance of must-sees and off the beaten track. Hope you have an amazing time!</p> 
     </div>
-    <span class="border-dashed border-2 w-full"></span>
+    <span class="border-dashed border-2 w-full mb-5"></span>
     <h3>Notes just for you</h3>
-    <p class='text-sm bg-[#ededed] p-3 rounded-lg'>Ao 26 vegetarian restaurant: <a href="https://g.co/kgs/VZSqW8e" class="text-primary font-semibold">https://g.co/kgs/VZSqW8e</a></p>
-  </DialogContent>
-</Dialog>
+    <p class='text-sm bg-[#ededed] p-3 rounded-lg mt-2'>Ao 26 vegetarian restaurant: <a href="https://g.co/kgs/VZSqW8e" class="text-primary font-semibold">https://g.co/kgs/VZSqW8e</a></p>
+    <DrawerClose as-child>
+            <Button variant="outline" class="absolute top-4 right-5">
+              <X />
+            </Button>
+          </DrawerClose>
+  </DrawerContent>
+</Drawer>
     </header>
 
     <!-- Search Bar -->
+     <div>
+      <Drawer>
+<DrawerTrigger class="w-full">
     <div class="relative mb-4">
       <input
         v-model="searchQuery"
         type="text"
+        readonly
         placeholder="Search for experiences"
-        class="w-full px-4 py-3 border rounded-2xl pr-10"
+        class="w-full cursor-pointer focus:border-none focus:outline-0 px-4 py-3 border rounded-2xl pr-10"
       />
       <span class="absolute inset-y-0 right-3 flex items-center text-gray-500">
         <Search :size="24" />
       </span>
     </div>
+  </DrawerTrigger>
+ <SearchSheet />
+  </Drawer>
+</div>
+    
 
     <!-- Filters -->
     <div class="flex max-w-full w-full overflow-x-scroll no-scrollbar gap-x-4 px-1 py-4">
@@ -154,9 +184,37 @@ onMounted(() => {
   </div>
   <div class="text-sm flex items-center gap-x-2">
     <FilterDrawer  @apply-filters="handleFilters"/>
-    <span @click="isSortedList = !isSortedList" class="bg-white rounded-lg p-2 cursor-pointer">
-            <ArrowDownUp :size="16" />
-          </span>
+    <div class="relative">
+      <div 
+        @click="toggleSortDropdown" 
+        class="bg-white rounded-lg p-2 cursor-pointer flex items-center gap-x-2"
+      >
+      <span v-if="isAscending">
+    <ArrowDownUp :size="16" />
+  </span>
+  <span v-else>
+    <ArrowUpDown :size="16" />
+  </span>
+      </div>
+      <!-- Sort Options Dropdown -->
+      <div 
+        v-if="isSortDropdownOpen" 
+        class="absolute bg-white shadow-lg rounded-lg top-full mt-2 right-0 w-32 py-2 z-10"
+      >
+        <button 
+          @click="setSortDirection(true)" 
+          class="w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+        >
+          Ascending
+        </button>
+        <button 
+          @click="setSortDirection(false)" 
+          class="w-full text-left px-4 py-2 text-sm hover:bg-gray-100"
+        >
+          Descending
+        </button>
+      </div>
+    </div>
   </div>
 </div>
 
