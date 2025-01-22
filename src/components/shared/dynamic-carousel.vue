@@ -15,9 +15,9 @@
     >
       <!-- Slides -->
       <swiper-slide v-for="(slide, index) in slides" :key="index">
-        <div class="w-full flex justify-between gap-x-4 flex-shrink-0 mb-5">
+        <div class="w-full flex justify-between gap-4 flex-shrink-0 mb-5">
           <!-- Slot for custom content -->
-          <slot :name="`slide-${index}`">
+          <slot :name="`slide-${index}`" >
             {{ slide }}
           </slot>
           <img
@@ -80,7 +80,7 @@ const nextSlide = () => {
   border-radius: var(--swiper-pagination-bullet-border-radius) !important;
   background: var(--swiper-pagination-bullet-inactive-color) !important;
   opacity: var(--swiper-pagination-bullet-inactive-opacity) !important;
-  margin: 0 4px !important;
+  margin: 5px 4px !important;
   transition: all 0.3s ease;
 }
 

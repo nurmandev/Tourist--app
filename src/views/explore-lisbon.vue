@@ -1,7 +1,10 @@
 <script setup lang="ts">
 // @ts-ignore
+import DidYouKnow from '@/components/shared/did-you-know.vue';
+// @ts-ignore
+import TrendyNeighborhood from '@/components/shared/trendy-neighborhood.vue';
 import TruncateText from '@/components/shared/truncateText.vue';
-import { exploreLocations } from '@/constant/home-data';
+import { exploreLocations, randomTexts } from '@/constant/home-data';
 import { ArrowLeft } from 'lucide-vue-next';
   </script>
   
@@ -36,75 +39,11 @@ import { ArrowLeft } from 'lucide-vue-next';
       </section>
   
       <!-- Trendy Neighborhoods -->
-      <section class="mt-5 w-full">
-        <h2 class="text-2xl font-medium mb-4">Trendy neighborhoods</h2>
-        <div class="relative bg-gray-100 rounded-lg shadow">
-          <img src="/images/Map.png" alt="Map" class="w-full rounded-t-lg">
-          <div class="p-4 bg-white border-b-rounded-lg">
-            <ul class="space-y-5 py-3 ">
-              <li class="flex gap-x-2 gap-y-3 border-b-2 border-dashed pb-5">
-                <span class="bg-[#1d0387] p-1 px-2 font-bold h-8 rounded-lg text-white">1</span>  
-              <span>
-                <h3 class="font-semibold"> Príncipe Real</h3>
-                <p class="text-gray-700">
-                  Filled with trendy restaurants, grand mansions, tiny antique shops, Moorish kiosks, and miniature gardens.
-                </p>
-              </span>
-              </li>
-              
-                <li class="flex gap-x-2 gap-y-3 border-b-2 border-dashed pb-5">
-                <span class="bg-[#1d0387] p-1 px-2 font-bold h-8 rounded-lg text-white">2</span>  
-              <span>
-                <h3 class="font-semibold">Bairro Alto</h3>
-                <p class="text-gray-700">
-                  Oldest and most traditional neighborhood, with a great nightlife and festive spirit.
-                </p>
-            </span>
-              </li>
-              <li class="flex gap-x-2 gap-y-3 border-b-2 border-dashed pb-5">
-                <span class="bg-[#1d0387] p-1 px-2 font-bold h-8 rounded-lg text-white">3</span>  
-              <span>
-                <h3 class="font-semibold"> Chiado</h3>
-                <p class="text-gray-700">
-                  Cultural and commercial district, known for its shopping, historic landmarks, and museums.
-                </p>
-            </span>
-              </li>
-              <li class="flex gap-x-2 gap-y-3 border-b-2 border-dashed pb-5">
-                <span class="bg-[#1d0387] p-1 px-2 font-bold h-8 rounded-lg text-white">4</span>  
-              <span>
-                <h3 class="font-semibold"> Baixa</h3>
-                <p class="text-gray-700">
-                    Known for its amazing big squares, neoclassical buildings, and commercial streets.
-                </p>
-            </span>
-              </li>
-              <li class="flex gap-x-2 gap-y-3 ">
-                <span class="bg-[#1d0387] p-1 px-2 font-bold h-8 rounded-lg text-white">5</span>  
-              <span>
-                <h3 class="font-semibold"> Alfama</h3>
-                <p class="text-gray-700">
-                    Delightful maze of narrow cobbled streets and traditional houses.
-                </p>
-            </span>
-              </li>
-              
-            </ul>
-          </div>
-        </div>
-      </section>
+      <TrendyNeighborhood />
   
       <!-- Did You Know -->
-      <section class="mt-5 w-full ">
-        <h2 class="text-2xl font-medium mb-4">Did you know?</h2>
-        <div class="bg-secondary flex items-center justify-between p-6 rounded-lg">
-        <p class="text-gray-700 ">
-            <span class="text-[#1D0387] mb-3 font-semibold">Local curiosity</span> <br>
-          Some local curiosities about Lisbon go here...
-        </p>
-        <img src="/images/icons/chat-bot.svg" alt="Chat bot" class="w-16 object-cover h-14 ">
-    </div>
-      </section>
+     
+        <DidYouKnow :text="randomTexts" />
   
       <!-- Useful Portuguese Phrases -->
       <section class="mt-5 flex justify-between w-full bg-secondary  p-6 rounded-lg">

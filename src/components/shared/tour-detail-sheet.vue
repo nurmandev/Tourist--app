@@ -2,13 +2,13 @@
   <Drawer class="space-y-4">
     <div v-for="section in safeAdditionalInfo" :key="section.title">
       <DrawerTrigger class="w-full">
-        <button
+        <div
           @click="openSheet(section.title)"
           class="flex w-full items-center bg-white rounded-lg p-4 justify-between mb-3"
         >
           <h2 class="text-lg font-semibold">{{ section.title }}</h2>
           <ChevronRight />
-        </button>
+        </div>
       </DrawerTrigger>
       <!-- Conditionally Render Bottom Sheet -->
       <div v-if="activeSection === section.title">

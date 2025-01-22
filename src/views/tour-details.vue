@@ -14,9 +14,9 @@
         duration: 300,
       },
     }"
-   v-if="tour" class="detail-page overflow-y-hidden">
+   v-if="tour" class=" min-h-screen flex flex-col ">
     <!-- Back button and header image -->
-    <div class="relative z-1">
+    <div class="relative ">
       <button @click="goBack" class="absolute top-4 left-4 bg-white p-2 rounded-lg shadow">
         <ArrowLeft />
       </button>
@@ -104,8 +104,46 @@
           >{{tag}}</div>
       </div>
 
-      <!-- Check Availabilty - Action Button -->
-     <CheckAvailability />
+      <div class="mt-4 bg-white p-3 py-5 space-y-3 rounded-xl">
+  <span class="flex items-center gap-x-2">
+    <img src="/images/icons/detail-1.svg" alt="duration" />
+    {{ tour.distance.time }}
+  </span>
+  <span class="flex items-center gap-x-2">
+    <img src="/images/icons/detail-2.svg" alt="location" />
+    {{ tour.distance.location }}
+  </span>
+  <span class="flex items-center gap-x-2">
+    <img src="/images/icons/alarm.svg" alt="availability" />
+    {{ tour.distance.availability }}
+  </span>
+  <div
+    v-for="tag in tour.tags"
+    :key="tag"
+    class="inline-flex mx-2 w-auto px-3 items-center bg-primary-gray rounded-lg"
+  >
+    {{ tag }}
+  </div>
+</div>
+
+<!-- Conditional Rendering -->
+<div
+  v-if="tour.id === 1"
+  class="bg-white rounded-xl py-5 px-3 mt-5"
+>
+  <h3 class="font-medium">Ready? Let's roll!</h3>
+  <a
+    href="https://www.metrolisboa.pt/en/"
+    target="_blank"
+    class="flex items-center font-medium justify-center gap-x-2 text-center bg-primary mt-5 text-white py-3 rounded-3xl"
+  >
+   <ExternalLink :size="20" /> Book Now
+  </a>
+</div>
+<div v-else>
+  <!-- Check Availability - Action Button -->
+  <CheckAvailability />
+</div>
     </div>
      <!-- Additional Sections -->
     
@@ -120,6 +158,7 @@
          </div>
          <!-- Map -->
         <img :src="tour.mapImage" alt="Map" class="w-full rounded-lg mt-4" />
+        <Related />
          </div>
      </div>
   </div>
@@ -134,13 +173,14 @@
 
 <script setup>
 import { useRoute, useRouter } from "vue-router";
-import { ChevronRight, SquareArrowOutUpRight, ArrowLeft } from "lucide-vue-next";
+import { ChevronRight, SquareArrowOutUpRight, ArrowLeft, ExternalLink } from "lucide-vue-next";
 import { CardFullData } from "@/constant/card-data"; 
 import TourDetailSheet from "@/components/shared/tour-detail-sheet.vue";
 import DidYouKnow from "@/components/shared/did-you-know.vue";
 import Button from "@/components/ui/button/Button.vue";
 import TruncateText from "@/components/shared/truncateText.vue";
 import CheckAvailability from "@/components/shared/tour-details/check-availability.vue";
+import Related from "@/components/shared/tour-details/related.vue";
 
 const route = useRoute(); 
 const router = useRouter(); 

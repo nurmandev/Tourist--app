@@ -3,7 +3,7 @@
     <!-- Swiper Container -->
     <swiper-container
       :slides-per-view="1"
-      :space-between="30"
+      :space-between="0"
       :autoplay-delay="2500" 
       :autoplay-disable-on-interaction="false"
       :pagination="{
@@ -16,32 +16,31 @@
     >
       <!-- Slides -->
       <swiper-slide v-for="(slide, index) in slides" :key="index" class="swiper-slide">
-        <div class="flex flex-col items-center pb-4 -mt-2">
+        <div class="flex flex-col items-center h-[75vh] pb-2">
+          <div class="relative max-w-[1050px]  w-full h-[250px] z-50">
           <img
             :src="slide.image"
-            class="w-full object-cover rounded-t-lg"
+            class="w-full h-full rounded-t-[25px] object-cover"
             :alt="slide.title"
           />
-          <div class="text-left py-5 px-4">
+        </div>
+          <div class="text-left p-5  px-4 bg-white h-full no-scrollbar   overflow-y-scroll">
             <h2 class="text-xl font-medium text-[#1D0387] mb-3">{{ slide.title }}</h2>
-            <p class="font-semibold mb-4">{{ slide.description }}</p>
+            <p class="font-semibold mb-4 leading-tight">{{ slide.description }}</p>
             <p>
               Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur congue vehicula cursus. Donec eu fringilla mauris. Mauris at enim elit.
               <br /><br />
               Sed ligula mi, lobortis vel hendrerit luctus, lobortis eget lorem. Nullam ut justo et neque efficitur rutrum sit amet nec tortor.
             </p>
+           
           </div>
+          
         </div>
       </swiper-slide>
     </swiper-container>
 
     <!-- Navigation Button -->
-    <button
-      @click="nextSlide"
-      class="w-[90%] flex justify-center  mx-auto bg-primary hover:bg-pink-600 text-white py-3 rounded-lg mt-2 transition-colors duration-200 focus:outline-none  focus:ring-offset-2"
-    >
-      Wow, nice! Next
-    </button>
+  
   </div>
 </template>
 
@@ -57,13 +56,13 @@ defineProps<{
 }>();
 
 // Custom function to go to the next slide
-const nextSlide = () => {
-  const swiper = document.querySelector('swiper-container');
-  if (swiper) {
-    const swiperInstance = swiper.swiper;
-    swiperInstance.slideNext();
-  }
-};
+// const nextSlide = () => {
+//   const swiper = document.querySelector('swiper-container');
+//   if (swiper) {
+//     const swiperInstance = swiper.swiper;
+//     swiperInstance.slideNext();
+//   }
+// };
 </script>
 
 <style>
@@ -86,7 +85,7 @@ const nextSlide = () => {
   border-radius: var(--swiper-pagination-bullet-border-radius) !important;
   background: var(--swiper-pagination-bullet-inactive-color) !important;
   opacity: var(--swiper-pagination-bullet-inactive-opacity) !important;
-  margin: 0 4px !important;
+  margin: 0px 4px !important;
   transition: all 0.3s ease;
 }
 
@@ -101,3 +100,10 @@ const nextSlide = () => {
   opacity: 0.5 !important;
 }
 </style>
+
+<!-- <button
+@click="nextSlide"
+class="w-[90%]  flex justify-center  mx-auto bg-primary hover:bg-pink-600 text-white py-3 rounded-lg mt-2 transition-colors duration-200 focus:outline-none  focus:ring-offset-2"
+>
+Wow, nice! Next
+</button> -->

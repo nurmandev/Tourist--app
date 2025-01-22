@@ -33,14 +33,7 @@
       Save
     </Button>
 
-    <div class="mt-4 text-sm">
-      <p>
-        From:
-        <span class="font-semibold">{{ value.start ? value.start.toString() : 'Not selected' }}</span>
-        To:
-        <span class="font-semibold">{{ value.end ? value.end.toString() : 'Not selected' }}</span>
-      </p>
-    </div>
+    
   </div>
 </template>
 
@@ -110,3 +103,12 @@ const confirm = () => {
   }
 };
 </script>
+
+<!-- <div class="mt-4 text-sm">
+  <p>
+    From:
+    <span class="font-semibold">{{ value.start ? value.start.toString() : 'Not selected' }}</span>
+    To:
+    <span class="font-semibold">{{ value.end ? value.end.toString() : 'Not selected' }}</span>
+  </p>
+</div> -->

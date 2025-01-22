@@ -168,9 +168,16 @@ export const filters = [
       description: 'Lisbon is one of the oldest cities in Western Europe, with a history spanning over 3,000 years.'
     }
   ]
+
+  export const randomTexts = [
+    `Lisbon is often called the "City of Seven Hills" much like Rome. Each hill offers unique viewpoints with stunning vistas.`,
+    "Lisbon is known for ginjinha, a cherry liqueur traditionally served in small cups. It’s a must-try local delight.",
+    "The Oceanário de Lisboa is one of the largest aquariums in Europe, housing marine life from around the globe."
+  ];
   
   export const exploreLocations = [
     { name: "Lisbon", image: "/images/lisbon.png" },
     { name: "Sintra", image: "/images/sintra.png" },
     { name: "Belem", image: "/images/belem.png" },
   ]
+

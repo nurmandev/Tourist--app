@@ -77,7 +77,7 @@
     @apply border-border font-wix;
   }
   body {
-    @apply bg-background max-w-sm w-full mx-auto text-foreground;
+    @apply bg-background max-w-sm w-full mx-auto text-foreground scroll-smooth;
   }
 }
 

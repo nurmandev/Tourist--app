@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { ref, computed } from 'vue';
-import { useRouter } from 'vue-router'; // For navigation to result page
-import { CalendarIcon, Users2Icon, Globe2Icon } from 'lucide-vue-next';
+import { useRouter } from 'vue-router'; 
+import { CalendarIcon, Users2Icon } from 'lucide-vue-next';
 import { Button } from '@/components/ui/button';
 import BottomSheet from '../bottom-sheet.vue';
 import { Drawer, DrawerTrigger } from '@/components/ui/drawer';
@@ -91,11 +91,15 @@ const handleCheckAvailability = (): void => {
           <Button
             variant="outline"
             class="w-full h-12 justify-start"
-            :class="{ 'opacity-50': !selectedLanguage }"
+            :class="{ 'opacity-80': !selectedLanguage }"
             @click="openSheet('language')"
           >
-            <Globe2Icon class="h-5 w-5 mr-2" />
-            {{ selectedLanguage?.name || 'Choose language' }}
+          <img
+          :src="`https://flagcdn.com/w320/${selectedLanguage?.code || 'pt'}.png`"
+          :alt="`${selectedLanguage?.name} flag`"
+          class="size-5 rounded-md object-cover"
+        />
+            {{ selectedLanguage?.name || 'Portuguese' }}
           </Button>
         </DrawerTrigger>
 

@@ -32,10 +32,15 @@
       <p class="text-[2.5rem]">😎</p>
     </div>
         </SheetTrigger>
-      <SheetContent  side="bottom" class="h-[80vh] bg-transparent no-scrollbar p-0 mt-0 z-50 overflow-y-scroll rounded-t-[20px]" >
-        <div class="bg-white  pb-5">
+      <SheetContent  side="bottom" class="bg-white rounded-t-[30px] no-scrollbar p-0 m-0 z-50  border-0" >
+        <div>
           <Carousel :slides="discoverSlides" />
         </div>
+        <SheetClose>
+          <span  class="absolute z-[99] cursor-pointer  top-3 right-4 text-white">
+              <X :size="26"/>
+            </span>
+        </SheetClose>
       </SheetContent>
     </Sheet>
 
@@ -102,10 +107,11 @@ import { ref } from 'vue'
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet'
 import { Label } from '@/components/ui/label'
 import { Switch } from '@/components/ui/switch'
-import { ArrowLeft } from 'lucide-vue-next'
+import { ArrowLeft, X } from 'lucide-vue-next'
 import { cards, discoverSlides } from '@/constant/home-data'
 import Carousel from '@/components/shared/carousel.vue'
 import FilterDrawer from '@/components/shared/filter-drawer.vue'
+import SheetClose from '@/components/ui/sheet/SheetClose.vue'
 
 const isOpen = ref(false)
 const currentSlide = ref(0)

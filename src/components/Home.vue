@@ -9,14 +9,13 @@ import { Drawer, DrawerContent, DrawerHeader, DrawerTitle, DrawerTrigger, Drawer
 import CardSkeleton from './shared/card-skeleton.vue'
 import GetToKnowLisbon from '@/views/Get-to-know-Lisbon.vue'
 import NoData from './shared/no-data.vue'
-import Button from "@/components/ui/button/Button.vue";
 import Card from './shared/card.vue'
 import FilterDrawer from '@/components/shared/filter-drawer.vue'
 import SearchSheet from './shared/search-sheet.vue'
 
 const router = useRouter()
 const route = useRoute()
-
+//const isMapView = ref(false)
 const isLoading = ref(true)
 const searchQuery = ref('')
 const activeFilter = ref('')
@@ -116,9 +115,9 @@ onMounted(() => {
       <h1 class="text-2xl font-semibold">Hey there, <br/> here's Toby's list</h1>
       <Drawer>
   <DrawerTrigger as-Child>
-    <a href="#" class="text-primary hover:underline text-md mt-2">See Toby's notes for you</a>
+    <span class="text-primary hover:underline text-md mt-2">See Toby's notes for you</span>
   </DrawerTrigger>
-  <DrawerContent class=' bg-white pb-5 px-5'>
+  <DrawerContent class=' bg-white  pb-7 border-0 px-5'>
     <DrawerHeader class="px-0">
       <DrawerTitle >Toby's notes</DrawerTitle>
     </DrawerHeader>
@@ -130,9 +129,9 @@ onMounted(() => {
     <h3>Notes just for you</h3>
     <p class='text-sm bg-[#ededed] p-3 rounded-lg mt-2'>Ao 26 vegetarian restaurant: <a href="https://g.co/kgs/VZSqW8e" class="text-primary font-semibold">https://g.co/kgs/VZSqW8e</a></p>
     <DrawerClose as-child>
-            <Button variant="outline" class="absolute top-4 right-5">
+            <span class="absolute top-4 size-8 right-5">
               <X />
-            </Button>
+            </span>
           </DrawerClose>
   </DrawerContent>
 </Drawer>
